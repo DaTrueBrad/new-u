@@ -4,16 +4,17 @@ import React, {useState} from 'react'
 
 export default function NewSet({dispatch, exerciseIndex, info, index}) {
 
-
+  console.log("NEWSET: ", info)
   const changeRepInfo = (newText) => {
     dispatch({type: "CHANGEREPINFO", exerciseLocation: exerciseIndex, setLocation: index, payload: newText})
   }
   const changeWeightInfo = (newText) => {
     dispatch({type: "CHANGEWEIGHTINFO", exerciseLocation: exerciseIndex, setLocation: index, payload: newText})
   }
-  
+
   return (
     <View className="flex-row justify-center w-96 h-12">
+      <Text className="text-white">     {index + 1}</Text>
           <Input
             placeholder="Reps"
             keyboardType="numeric"

@@ -14,7 +14,7 @@ const reducer = (state = initialState, action) => {
     case "LOGIN":
         console.log("DATA: ", action.payload)
         const {token, username, userId, email, firstName} = action.payload
-        return {token, username, userId, email, firstName, isAuthenticated: true}
+        return {...state, token, username, userId, email, firstName, isAuthenticated: true}
     default:
       return state
   }

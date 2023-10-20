@@ -14,7 +14,9 @@ import ArticleScreen from "./screens/ArticleScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import { Provider, useSelector } from "react-redux";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import TrackWorkout from "./components/TrackWorkout";
+import TrackingScreen from "./screens/TrackingScreen";
 
 export default function NavContainer() {
   const isAuthenticated = useSelector((state) => state.isAuthenticated);
@@ -34,17 +36,19 @@ export default function NavContainer() {
   };
   const startOptions = {
     tabBarIcon: ({ color }) => {
-      return <MaterialCommunityIcons name="dumbbell" color={color} size={26} />
+      return <MaterialCommunityIcons name="dumbbell" color={color} size={26} />;
     },
   };
   const articleOptions = {
     tabBarIcon: ({ color }) => {
-      return <MaterialCommunityIcons name="newspaper" color={color} size={26} />
+      return (
+        <MaterialCommunityIcons name="newspaper" color={color} size={26} />
+      );
     },
   };
   const profileOptions = {
     tabBarIcon: ({ color }) => {
-      return <MaterialCommunityIcons name="home" color={color} size={26} />
+      return <MaterialCommunityIcons name="home" color={color} size={26} />;
     },
   };
   return (
@@ -63,18 +67,22 @@ export default function NavContainer() {
             name="Dashboard"
             component={Dashboard}
             tabBarLabel="Hello"
-            
           />
           <Tab.Screen
             options={newOptions}
             name="New"
             component={NewWorkoutScreen}
           />
-          <Tab.Screen
-            options={startOptions}
-            name="Start"
-            component={WorkoutScreen}
-          />
+            {/* <Tab.Screen
+              options={startOptions}
+              name="Start"
+              component={WorkoutScreen}
+            /> */}
+            <Tab.Screen
+              options={startOptions}
+              name="Start"
+              component={TrackingScreen}
+            />
           <Tab.Screen
             options={articleOptions}
             name="Articles"

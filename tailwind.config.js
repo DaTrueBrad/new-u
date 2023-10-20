@@ -4,7 +4,9 @@ module.exports = {
     "./App.{js,jsx,ts,tsx}",
     "./screens/*.{js,jsx,ts,tsx}",
     "./screens/HomeScreen.jsx",
-    "./components/*.{js,jsx,ts,tsx}"
+    "./components/history/*.{js,jsx,ts,tsx}",
+    "./components/*.{js,jsx,ts,tsx}",
+    // "./components/history/HistoryDropdown.jsx",
   ],
   theme: {
     extend: {},

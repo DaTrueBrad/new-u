@@ -7,15 +7,16 @@ import NewSet from "./NewSet";
 export default function NewExerciseSection({ dispatch, index, currentInfo }) {
 
   const changeName = (newName) => {
+    console.log("CHANGE NAME")
     dispatch({type: "CHANGEEXERCISENAME", exerciseLocation: index, payload: newName})
   }
-
+  // console.log("EXERCISE SECTION: ", currentInfo)
   const displaySets = currentInfo.sets.map((s, i) => {
-    // let id = uuid.v4();
+    let id = uuid.v4();
     return (
       <NewSet
         info={s}
-        // key={id}
+        key={id}
         index={i}
         dispatch={dispatch}
         exerciseIndex={index}
@@ -40,7 +41,7 @@ export default function NewExerciseSection({ dispatch, index, currentInfo }) {
           fontWeight: "600",
           fontSize: 26
         }}
-        value={currentInfo.exercise}
+        defaultValue={currentInfo.exercise}
         onChangeText={changeName}
       />
       {displaySets}
